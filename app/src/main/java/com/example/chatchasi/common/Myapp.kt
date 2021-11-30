@@ -5,5 +5,7 @@ import android.app.Application
 class Myapp: Application() {
     var token = ""
     var username = ""
+    var loginText = ""
+    var passwordText = ""
 
 }

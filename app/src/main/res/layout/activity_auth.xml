@@ -23,7 +23,8 @@
             <EditText
                 android:id="@+id/login"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:inputType="textPersonName"
                 android:text="ykropotova"
                 android:hint="Введите логин"
@@ -32,18 +33,26 @@
            <EditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:inputType="textPassword"
                 android:text="240603"
                 android:hint="Введите пароль"
                 />
-            <Button
+
+               <Button
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                   android:layout_weight="1"
                 android:text="Войти"/>
+                <Button
+                android:id="@+id/logout_button"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="Выйти"/>
+
         </LinearLayout>
-
-
     </FrameLayout>
 </androidx.wear.widget.BoxInsetLayout>

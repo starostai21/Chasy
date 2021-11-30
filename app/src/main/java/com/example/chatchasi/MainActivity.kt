@@ -12,16 +12,14 @@ import com.example.chatchasi.common.Myapp
 import org.json.JSONObject
 
 class MainActivity : Activity() {
-
-    private var username = ""
-    private var token = ""
+    private lateinit var app: Myapp
     var counter = 0
     var ready = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        app = applicationContext as Myapp
         var splash = findViewById<ImageView>(R.id.splash)
         object : CountDownTimer(5000,1000){
             override fun onTick(millisUntilFinished: Long) {
@@ -38,15 +36,19 @@ class MainActivity : Activity() {
                 splash.elevation = 0F
             }
         }.start()
-        startActivity(Intent(this, AuthActivity::class.java))
+        //вызов onLoginResponce
+        onLoginResponce(app.loginText, app.passwordText)
+        startActivity(Intent(this, ChatActivity::class.java))
 
         //setAmbientEnabled()
     }
 
-    val onLoginResponce: (login: String, password: String)->Unit = { login, password ->
+    fun onLoginResponce (login: String, password: String)
+    {
         // первым делом сохраняем имя пользователя,
         // чтобы при необходимости можно было разлогиниться
-        username = login
+        app.username = login
+
 
 
         // затем формируем JSON объект с нужными полями
@@ -79,14 +81,13 @@ class MainActivity : Activity() {
 
                     // есть токен!!!
                     if(jsonResp.getJSONObject("notice").has("token")) {
-                        token = jsonResp.getJSONObject("notice").getString("token")
-                        runOnUiThread {
-                            //переход на другое окно
-                            startActivity( Intent(this,AuthActivity::class.java))
-                        }
+                        app.token = jsonResp.getJSONObject("notice").getString("token")
                     }
-                    else
+                    else {
                         throw Exception("Не верный формат ответа, ожидался объект token")
+
+                    }
+
                 }
                 catch (e: Exception)
                 {
@@ -97,6 +98,7 @@ class MainActivity : Activity() {
                             .setPositiveButton("OK", null)
                             .create()
                             .show()
+                        startActivity(Intent(this, AuthActivity::class.java))
                     }
                 }
             }
@@ -108,6 +110,7 @@ class MainActivity : Activity() {
                         .setPositiveButton("OK", null)
                         .create()
                         .show()
+                    startActivity(Intent(this, AuthActivity::class.java))
                 }
 
         }
