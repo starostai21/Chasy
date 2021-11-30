@@ -12,15 +12,15 @@ import org.json.JSONObject
 
 class AuthActivity : Activity() {
 
-
-
+    private val loginText: EditText
+    val passwordText: EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
 
 
-        val loginText = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.login)
-        val passwordText = findViewById<com.google.android.material.textfield.TextInputEditText>(R.id.password)
+        loginText = findViewById(R.id.login)
+        passwordText = findViewById(R.id.password)
         val loginButton = findViewById<Button>(R.id.login_button)
         loginButton.setOnClickListener {
             if(loginText.text!!.isNotEmpty() && passwordText.text!!.isNotEmpty())

@@ -28,9 +28,10 @@
             android:name="com.google.android.wearable.standalone"
             android:value="true" />
 
+
         <activity
             android:name=".AuthActivity"
-            android:label="@string/title_activity_auth"></activity>
+            android:label="@string/title_activity_auth" />
         <activity
             android:name=".ChatActivity"
             android:label="@string/title_activity_chat" />

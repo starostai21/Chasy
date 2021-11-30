@@ -12,45 +12,31 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/inner_frame_layout_padding"
+        android:padding="5dp"
+
         >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/login_error"
+
+            <EditText
+                android:id="@+id/login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                >
+                android:inputType="textPersonName"
+                android:text="ykropotova"
+                android:hint="Введите логин"
+                />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/login"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
-                    android:text="ykropotova"
-                    android:hint="Введите логин"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/password_error"
+           <EditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:errorEnabled="true"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:text="240603"
-                    android:hint="Введите пароль"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
+                android:inputType="textPassword"
+                android:text="240603"
+                android:hint="Введите пароль"
+                />
             <Button
                 android:id="@+id/login_button"
                 android:layout_width="match_parent"
